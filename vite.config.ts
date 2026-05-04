@@ -1,8 +1,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// Set `base` to your repository name for GitHub Pages project site
-export default defineConfig({
-  base: '/University_Grade_Tracker/',
+const repoBase = '/uni-track/'
+
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? repoBase : '/',
   plugins: [react()],
-})
+}))
